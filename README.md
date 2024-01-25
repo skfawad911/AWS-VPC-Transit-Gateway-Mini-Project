@@ -4,6 +4,12 @@
 
 This project demonstrates the implementation of VPC Transit Gateway in AWS, connecting three VPCs—VPC1 (12.0.0.0/16), VPC2 (13.0.0.0/16), and VPC3 (14.0.0.0/16). Each VPC includes an internet gateway, public subnet, route table, and an EC2 instance hosting a webpage displaying server details.
 
+## Architecture
+
+![Diagram](Images/TransitGateway.png)
+
+*This is the Architecture that i will be using for this project*
+
 ## VPC Configuration
 
 ### VPC1
@@ -47,12 +53,14 @@ This project demonstrates the implementation of VPC Transit Gateway in AWS, conn
     # Restart Apache2
     sudo systemctl restart apache2
     ```
-
+![Diagram](Images/instances.png)
 ## Transit Gateway Configuration
 
 - **Transit Gateway**
 - **Transit Attachments (3):**
   - Attach each VPC to the Transit Gateway
+![Diagram](Images/transitG.png)
+![Diagram](Images/tg-attachments.png)
 
 ## Verification
 
@@ -65,6 +73,9 @@ This project demonstrates the implementation of VPC Transit Gateway in AWS, conn
 curl [Other_Instance_Private_IP]
 ```
 - You should see the content of the index.html page, displaying server details.
+
+  ![Diagram](Images/curl-from-prod-to-test.png)
+  ![Diagram](Images/curl-from-test-to-prod.png)
 
 ## VPC Peering vs. Transit Gateway
 - VPC Peering:
